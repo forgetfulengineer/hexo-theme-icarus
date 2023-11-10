@@ -1,0 +1,15 @@
+/* ---------------------------------
+ *   自訂義樣式
+ * --------------------------------- */
+
+// 優化網站布局
+// widescreen 以上的三欄佈局 (調整欄位寬度)
++widescreen()
+    .column.is-3-widescreen
+        width 22%
+    .column.is-6-widescreen
+        width 56%
+
+@media screen and (min-width: $screen-onek)
+    .container
+        max-width: 1500px
