@@ -17,3 +17,25 @@ $primary-color-hover = rgb(146,127,108)
 @media screen and (min-width: $screen-onek)
     .container
         max-width: 1500px
+
+// Nav bar
+.navbar
+    backdrop-filter: blur(10px)
+    -webkit-backdrop-filter: blur(10px)
+    z-index: 100
+    position: sticky
+    top: 0
+
+.navbar-main
+    .navbar-item
+        background-image: linear-gradient(transparent calc(100% - 1px), $primary-color-hover 1px)
+        background-repeat: no-repeat
+        background-size: 0 85%
+        transition: all .25s ease-in-out
+        &.is-active
+            color: $primary-color-hover
+            font-weight: bold
+        &:hover
+            color: $primary-color-hover
+            background-color: transparent
+            background-size: 100% 100%
