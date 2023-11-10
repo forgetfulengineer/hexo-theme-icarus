@@ -39,3 +39,29 @@ $primary-color-hover = rgb(146,127,108)
             color: $primary-color-hover
             background-color: transparent
             background-size: 100% 100%
+
+// 連結、按鈕
+a
+    color: $primary-color
+    &:hover
+        color: $primary-color-hover
+        transition: all .3s;
+
+.button.is-primary, .button.is-link
+    background-color: $primary-color
+    &:hover
+        background-color: $primary-color-hover
+        transition: all .3s;
+
+article
+    .title a
+        background-image: linear-gradient(transparent calc(100% - 1px), $primary-color-hover 1px)
+        background-repeat: no-repeat
+        background-size: 0 100%
+        transition: all .25s ease-in-out
+    .title:hover a
+        color: $primary-color-hover !important
+        background-size: 100% 100%
+
+.pagination-link.is-current
+    background-color: $primary-color-hover
