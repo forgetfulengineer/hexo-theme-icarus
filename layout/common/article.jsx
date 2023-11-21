@@ -35,6 +35,16 @@ module.exports = class extends Component {
             {/* Main content */}
             <div class="card">
                 <article class={`card-content article${'direction' in page ? ' ' + page.direction : ''}`} role="article">
+                    {/* Title */}
+                    <h1 class="title is-2 is-size-4-mobile">
+                        {index ? (
+                            <a class="link-muted" href={url_for(page.link || page.path)}>
+                                {page.title}
+                            </a>
+                        ) : (
+                            page.title
+                        )}
+                    </h1>
                     {/* Metadata */}
                     {page.layout !== 'page' ? <div class="article-meta is-size-7 is-uppercase level is-mobile">
                         <div class="level-left">
@@ -75,9 +85,6 @@ module.exports = class extends Component {
                             }}></span> : null}
                         </div>
                     </div> : null}
-                    {/* Title */}
-                    {page.title !== '' && index ? <p class="title is-3 is-size-4-mobile"><a class="link-muted" href={url_for(page.link || page.path)}>{page.title}</a></p> : null}
-                    {page.title !== '' && !index ? <h1 class="title is-3 is-size-4-mobile">{page.title}</h1> : null}
                     {/* Thumbnail */}
                     {cover ? <div class="card-image">
                         {index ? <a href={url_for(page.link || page.path)} class="image is-7by3">
