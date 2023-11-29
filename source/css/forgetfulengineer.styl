@@ -49,7 +49,8 @@ a
         background-color: $primary-color-hover
         transition: all .3s;
 
-article
+// 文章列表 (article.media)
+article.media
     .title a
         background-image: linear-gradient(transparent calc(100% - 1px), $primary-color-hover 1px)
         background-repeat: no-repeat
@@ -60,7 +61,14 @@ article
         background-size: 100% 100%
     .link-muted:hover
         color: $primary-color-hover !important
+    a:hover
+        color: $primary-color-hover
+        transition: all .3s;
+    // 移除強制大寫
+    .categories
+        text-transform: none !important;
 
+// 頁數
 .pagination-link.is-current
     background-color: $primary-color-hover
 
