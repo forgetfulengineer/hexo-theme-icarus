@@ -95,6 +95,15 @@ article.media
 .pagination-link.is-current
     background-color: $primary-color-hover
 
+// 側邊欄
++tablet()
+    .column-main.is-sticky,
+    .column-left.is-sticky,
+    .column-right.is-sticky,
+    .column-right-shadow.is-sticky
+        top: 6.5rem;
+        align-self: flex-start;
+
 // card
 .card
     border-radius: 15px
