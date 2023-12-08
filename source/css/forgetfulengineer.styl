@@ -61,6 +61,9 @@ article
     .link-muted:hover
         color: $primary-color-hover !important
 
+.article-licensing
+    border-radius: 15px
+
 // 文章列表 (article.media)
 article.media
     .title a
@@ -85,8 +88,10 @@ article.media
     background-color: $primary-color-hover
 
 // card
-.card:hover
-    box-shadow: 0 6px 15px rgba(0,0,0,0.15), 0 0 7px rgba(0,0,0,0.1)
+.card
+    border-radius: 15px
+    &:hover
+        box-shadow: 0 15px 15px rgba(0,0,0,0.15), 0 0 7px rgba(0,0,0,0.1)
 
 // 卷軸
 +desktop()
