@@ -106,7 +106,7 @@ module.exports = class extends Component {
                         {page.tags && page.tags.length ? <div class="article-tags is-size-7">
                             <i class="fa-solid fa-tags"></i>
                             {page.tags.map(tag => {
-                                return <a class="link-muted mr-2" rel="tag" href={url_for(tag.path)}>{tag.name}</a>;
+                                return <a class="link-muted mr-2" rel="tag" href={url_for(tag.path)}># {tag.name}</a>;
                             })}
                         </div> : null}
                         {/* "Read more" button */}
