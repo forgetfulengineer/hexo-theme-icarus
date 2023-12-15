@@ -33,6 +33,19 @@ module.exports = class extends Component {
 
         return <Fragment>
             {/* Main content */}
+            {!index && page.categories ?
+            <div class="card">
+                <div class="card-content">
+                    <nav class="breadcrumb" aria-label="breadcrumbs">
+                        <ul>
+                            <li><a href={url_for('/categories')}>{_p('common.category', Infinity)}</a></li>
+                            {page.categories.map(category => {
+                                return <li><a href={url_for(category.path)}>{category.name}</a></li>;
+                            })}
+                        </ul>
+                    </nav>
+                </div>
+            </div> : null}
             <div class="card">
                 <article class={`card-content article${'direction' in page ? ' ' + page.direction : ''}`} role="article">
                     {/* Title */}
@@ -60,7 +73,7 @@ module.exports = class extends Component {
                             {/* author */}
                             {page.author ? <span class="level-item"> {page.author} </span> : null}
                             {/* Categories */}
-                            {page.categories && page.categories.length ? <span class="level-item">
+                            {index && page.categories && page.categories.length ? <span class="level-item">
                                 <i class="fa-regular fa-folder-open"></i>
                                 {(() => {
                                     const categories = [];
