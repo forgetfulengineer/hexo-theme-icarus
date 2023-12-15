@@ -91,6 +91,17 @@ article.media
         color: $primary-color-hover
         font-weight: bold
 
+// 標籤列表
+.tag:not(body)
+    border-radius: 7px
+    font-size: 0.8rem
+    background-color: $body-background-color
+    &.is-primary
+        background-color: $primary-color-hover
+
+.widget .tags .tag:first-child
+    background-color: $primary-color-hover
+
 // 頁數
 .pagination-link.is-current
     background-color: $primary-color-hover
