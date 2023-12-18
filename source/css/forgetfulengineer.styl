@@ -43,6 +43,10 @@ html
             background-color: transparent
             background-size: 100% 100%
 
++mobile()
+    .navbar-item.navbar-logo
+        padding-bottom: 0rem
+
 // 連結、按鈕
 a
     color: $primary-color
@@ -135,6 +139,12 @@ article.media
 // footer
 footer.footer
     padding: 2rem
+
++mobile()
+    footer.footer
+        padding: 1.5rem
+        .level-end .field
+            margin-top: 0rem
 
 // 卷軸
 +desktop()
