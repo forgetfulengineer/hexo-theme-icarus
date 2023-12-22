@@ -139,4 +139,10 @@
         $mask.on('click', toggleToc);
         $('.navbar-main .catalogue').on('click', toggleToc);
     }
+
+    // 回覆文章
+    const twikoo = document.getElementById("twikoo");
+    $('#replay').click(function() {
+        twikoo.scrollIntoView({ behavior: 'smooth' });
+    })
 }(jQuery, window.moment, window.ClipboardJS, window.IcarusThemeSettings));
