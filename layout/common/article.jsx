@@ -100,6 +100,8 @@ module.exports = class extends Component {
                             }}></span> : null}
                             {/* replay */}
                             {!index ? <span id="replay" class="level-item" style="cursor: pointer;"><i class="fa-regular fa-comment-dots"></i>回覆文章</span> : null}
+                            {/* share */}
+                            <span id="share" class="level-item copy" style="cursor: pointer;" title='複製連結' data-clipboard-text={page.permalink}><i class="fa-solid fa-link"></i>分享</span>
                         </div>
                     </div> : null}
                     {/* Thumbnail */}

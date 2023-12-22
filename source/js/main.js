@@ -145,4 +145,7 @@
     $('#replay').click(function() {
         twikoo.scrollIntoView({ behavior: 'smooth' });
     })
+
+    // 複製文章連結
+    new ClipboardJS('#share');
 }(jQuery, window.moment, window.ClipboardJS, window.IcarusThemeSettings));
