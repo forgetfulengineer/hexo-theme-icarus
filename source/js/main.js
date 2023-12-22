@@ -93,7 +93,10 @@
                 $(this).attr('id', id);
                 $(this).find('figcaption div.level-right').append(button);
             });
-            new ClipboardJS('.highlight .copy'); // eslint-disable-line no-new
+            let highlight_copy = new ClipboardJS('.highlight .copy'); // eslint-disable-line no-new
+            highlight_copy.on('success', function(e) {
+                e.clearSelection(); // 取消選取
+            });
         }
 
         if (fold) {
