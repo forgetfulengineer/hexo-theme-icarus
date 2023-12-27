@@ -116,6 +116,25 @@ mark
     border-radius: 10px
     border-width: 0 0 0 6px
 
+// 表格
+.table-scroll
+    height: 65vh
+    overflow-y: auto
+    // 表格首行首列釘選
+    td:first-child, th:first-child
+        position: sticky
+        z-index: 1
+        left: 0
+        background-color: rgb(255, 255, 255)
+
+    thead tr th
+        position: sticky
+        top: 0
+        background-color: rgb(255, 255, 255)
+
+    th:first-child
+        z-index: 2
+
 // 目錄
 .menu-list a
     border-radius: 10px

@@ -162,4 +162,7 @@
             }, 1000);
         }, 1500);
     });
+
+    // 文章內表格 - 新增樣式
+    $('.table-scroll table').addClass("table is-hoverable");
 }(jQuery, window.moment, window.ClipboardJS, window.IcarusThemeSettings));
