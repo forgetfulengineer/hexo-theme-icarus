@@ -30,6 +30,7 @@ module.exports = class extends Component {
         const updateTime = article && article.update_time !== undefined ? article.update_time : true;
         const isUpdated = page.updated && !moment(page.date).isSame(moment(page.updated));
         const shouldShowUpdated = page.updated && ((updateTime === 'auto' && isUpdated) || updateTime === true);
+        const share = page.share === false ? false : true;
 
         return <Fragment>
             {/* Main content */}
@@ -117,7 +118,7 @@ module.exports = class extends Component {
                     {/* Licensing block */}
                     {!index && page.layout !== 'page' && article && article.licenses && Object.keys(article.licenses)
                         ? <ArticleLicensing.Cacheable page={page} config={config} helper={helper} /> : null}
-                    <hr/>
+                    {share ? <hr/> : null}
                     <div class="level is-flex">
                         {/* Tags */}
                         {page.tags && page.tags.length ? <div class="article-tags is-size-7">
@@ -130,7 +131,7 @@ module.exports = class extends Component {
                         {index && page.excerpt ? <a class="article-more button is-small is-size-7" href={`${url_for(page.link || page.path)}`}><i class="fa-brands fa-readme"></i>{__('article.more')}</a> : null}
                     </div>
                     {/* Share button */}
-                    {!index ? <Share config={config} page={page} helper={helper} /> : null}
+                    {!index && share ? <Share config={config} page={page} helper={helper} /> : null}
                 </article>
             </div>
             {/* Donate button */}
