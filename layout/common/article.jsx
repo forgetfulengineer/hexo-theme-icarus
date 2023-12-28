@@ -151,7 +151,7 @@ module.exports = class extends Component {
                 </div> : null}
             </nav> : null}
             {/* Comment */}
-            {!index ? <Comment config={config} page={page} helper={helper} /> : null}
+            {!index && page.comments ? <Comment config={config} page={page} helper={helper} /> : null}
         </Fragment>;
     }
 };
