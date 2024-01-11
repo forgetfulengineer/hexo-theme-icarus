@@ -49,7 +49,7 @@ module.exports = class extends Component {
             favicon
         } = head;
 
-        const noIndex = helper.is_archive() || helper.is_category() || helper.is_tag();
+        const noIndex = helper.is_archive() || helper.is_tag();
 
         const language = page.lang || page.language || config.language;
         const fontCssUrl = {
