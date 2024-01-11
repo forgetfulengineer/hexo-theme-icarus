@@ -50,7 +50,7 @@ module.exports = class extends Component {
             <div class="card">
                 <article class={`card-content article${'direction' in page ? ' ' + page.direction : ''}`} role="article">
                     {/* Title */}
-                    <h1 class="title is-2 is-size-4-mobile mb-3">
+                    <h1 class="title is-3 is-size-4-mobile mb-3">
                         {index ? (
                             <a class="link-muted" href={url_for(page.link || page.path)}>
                                 {page.title}
