@@ -110,7 +110,7 @@ module.exports = class extends Component {
                         {index ? <a href={url_for(page.link || page.path)} class="image is-7by3">
                             <img class="fill" src={cover} alt={page.title || cover} />
                         </a> : <span class="image is-7by3">
-                            <img class="fill" src={cover} alt={page.title || cover} />
+                            <img class="fill not-gallery-item" src={cover} alt={page.title || cover} />
                         </span>}
                     </div> : null}
                     {/* Content/Excerpt */}
