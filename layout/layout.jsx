@@ -6,6 +6,7 @@ const Widgets = require('./common/widgets');
 const Footer = require('./common/footer');
 const Scripts = require('./common/scripts');
 const Search = require('./common/search');
+const Notification = require('./common/notification');
 
 module.exports = class extends Component {
     render() {
@@ -37,6 +38,7 @@ module.exports = class extends Component {
                 <Footer config={config} helper={helper} />
                 <Scripts site={site} config={config} helper={helper} page={page} />
                 <Search config={config} helper={helper} />
+                <Notification />
             </body>
         </html>;
     }

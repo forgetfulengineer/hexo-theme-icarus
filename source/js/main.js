@@ -148,4 +148,18 @@
 
     // 複製文章連結
     new ClipboardJS('#share');
+
+    // 複製完成提示
+    $('.copy').click(function () {
+        let copied = $('.notification');
+        copied.animate({
+            bottom: "2%",
+        }, 500);
+
+        setTimeout(() => {
+            copied.animate({
+                bottom: "-15%",
+            }, 1000);
+        }, 1500);
+    });
 }(jQuery, window.moment, window.ClipboardJS, window.IcarusThemeSettings));
