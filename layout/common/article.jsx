@@ -62,15 +62,15 @@ module.exports = class extends Component {
                     {/* Metadata */}
                     {page.layout !== 'page' ? <div class="article-meta is-size-7 level is-mobile mb-3">
                         <div class="level-left">
-                            {/* Creation Date */}
-                            {page.date && <span class="level-item">
+                            {/* 如果有更新顯示更新時間 */}
+                            {/* Creation Date or Last Update Date */}
+                            <span class="level-item">
                                 <i class="fa-regular fa-calendar-days"></i>
-                                <time dateTime={date_xml(page.date)} title={new Date(page.date).toLocaleString()}>{date(page.date)}</time>
-                            </span>}
-                            {/* Last Update Date */}
-                            {shouldShowUpdated && <span class="level-item" dangerouslySetInnerHTML={{
-                                __html: _p('article.updated_at', `<time dateTime="${date_xml(page.updated)}" title="${new Date(page.updated).toLocaleString()}">${date(page.updated)}</time>`)
-                            }}></span>}
+                                {shouldShowUpdated ?
+                                    <time dateTime={date_xml(page.updated)} title={__('article.licensing.updated_at') + new Date(page.updated).toLocaleString()}>{date(page.updated)}</time> :
+                                    <time dateTime={date_xml(page.date)} title={__('article.licensing.created_at') + new Date(page.date).toLocaleString()}>{date(page.date)}</time>
+                                }
+                            </span>
                             {/* author */}
                             {page.author ? <span class="level-item"> {page.author} </span> : null}
                             {/* Categories */}
