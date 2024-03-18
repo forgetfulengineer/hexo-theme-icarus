@@ -14,6 +14,11 @@
     .container
         max-width: 1500px
 
+// 手機佈局隱藏
++until($phone)
+    .is-hidden-phone
+        display: none !important;
+
 // 跳轉錨點上方留空
 html
     scroll-padding-top: 150px
