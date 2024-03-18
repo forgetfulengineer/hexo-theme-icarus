@@ -36,21 +36,17 @@ html
 
 .navbar-menu
     .navbar-item
-        background-image: linear-gradient(transparent calc(100% - 1px), $primary-color-hover 1px)
-        background-repeat: no-repeat
-        background-size: 0 85%
-        transition: all .25s ease-in-out
         &.is-active
-            color: $primary-color-hover
             font-weight: bold
-        &:hover
-            color: $primary-color-hover
-            background-color: transparent
-            background-size: 100% 100%
+    .navbar-link
+        &.is-active
+            font-weight: bold
+        &:not(.is-arrowless)::after
+            transition: transform 0.5s;
 
-+mobile()
-    .navbar-item.navbar-logo
-        padding-bottom: 0rem
+// 有次選單的category icon 旋轉 (箭頭)
+.dropdown-icon-rotate::after
+    transform: rotate(-225deg) !important
 
 // 連結、按鈕
 a

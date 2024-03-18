@@ -50,7 +50,19 @@ class Navbar extends Component {
                     {Object.keys(menu).length ? <div class="navbar-start">
                         {Object.keys(menu).map(name => {
                             const item = menu[name];
-                            return <a class={classname({ 'navbar-item': true, 'is-active': item.active })} href={item.url}>{name}</a>;
+                            if (typeof item.url === 'string') {
+                                return <a class={classname({ 'navbar-item': true, 'is-active': item.active })} href={item.url}>{name}</a>;
+                            } else {
+                                return <div class="navbar-item has-dropdown is-hoverable">
+                                            <a class={classname({ 'navbar-link': true, 'is-active': item.active })}>{name}</a>
+                                            <div class="navbar-dropdown">
+                                                {Object.keys(item.url).map(subname => {
+                                                    const suburl = item.url[subname]['suburl'];
+                                                    return <a class={classname({ 'navbar-item': true })} href={suburl}>{subname}</a>;
+                                                })}
+                                            </div>
+                                        </div>
+                            }
                         })}
                     </div> : null}
                     <div class="navbar-end">
@@ -87,9 +99,20 @@ module.exports = cacheComponent(Navbar, 'common.navbar', props => {
     if (navbar && navbar.menu) {
         const pageUrl = typeof page.path !== 'undefined' ? url_for(page.path) : '';
         Object.keys(navbar.menu).forEach(name => {
-            const url = url_for(navbar.menu[name]);
-            const active = isSameLink(url, pageUrl);
-            menu[name] = { url, active };
+            if (typeof navbar.menu[name] === 'string') {
+                const url = url_for(navbar.menu[name]);
+                const active = isSameLink(url, pageUrl);
+                menu[name] = { url, active };
+            } else {
+                const url = {};
+                let active = false;
+                Object.keys(navbar.menu[name]).forEach(subname => {
+                    const suburl = url_for(navbar.menu[name][subname]);
+                    active = (active) ? active : isSameLink(suburl, pageUrl);
+                    url[subname] = { suburl }
+                })
+                menu[name] = { url, active };
+            }
         });
     }
 
