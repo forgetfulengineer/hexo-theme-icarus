@@ -76,7 +76,7 @@ module.exports = class extends Component {
                             {/* author */}
                             {page.author ? <span class="level-item"> {page.author} </span> : null}
                             {/* Categories */}
-                            {index && page.categories && page.categories.length ? <span class="level-item">
+                            {index && page.categories && page.categories.length ? <span class="level-item is-hidden-phone">
                                 <i class="fa-regular fa-folder-open"></i>
                                 {(() => {
                                     const categories = [];
