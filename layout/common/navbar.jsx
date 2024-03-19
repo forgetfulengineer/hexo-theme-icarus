@@ -45,6 +45,24 @@ class Navbar extends Component {
                     <a class="navbar-item navbar-logo" href={siteUrl}>
                         {navbarLogo}
                     </a>
+                    <div class="navbar-end is-flex">
+                        {showToc ? <a class="navbar-item is-hidden-tablet catalogue" title={tocTitle} href="javascript:;">
+                                <button class="button is-small">
+                                    <span class="icon is-small">
+                                        <i class="fas fa-list-ul"></i>
+                                    </span>
+                                    <span>文章目錄</span>
+                                </button>
+                            </a> : null}
+                        {showSearch ? <a class="navbar-item is-hidden-desktop search" title={searchTitle} href="javascript:;">
+                            <i class="fas fa-search"></i>
+                        </a> : null}
+                    </div>
+                    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+                            <span aria-hidden="true"></span>
+                            <span aria-hidden="true"></span>
+                            <span aria-hidden="true"></span>
+                    </a>
                 </div>
                 <div class="navbar-menu">
                     {Object.keys(menu).length ? <div class="navbar-start">
@@ -65,7 +83,7 @@ class Navbar extends Component {
                             }
                         })}
                     </div> : null}
-                    <div class="navbar-end">
+                    <div class="navbar-end is-hidden-touch">
                         {Object.keys(links).length ? <Fragment>
                             {Object.keys(links).map(name => {
                                 const link = links[name];
@@ -74,9 +92,6 @@ class Navbar extends Component {
                                 </a>;
                             })}
                         </Fragment> : null}
-                        {showToc ? <a class="navbar-item is-hidden-tablet catalogue" title={tocTitle} href="javascript:;">
-                            <i class="fas fa-list-ul"></i>
-                        </a> : null}
                         {showSearch ? <a class="navbar-item search" title={searchTitle} href="javascript:;">
                             <i class="fas fa-search"></i>
                         </a> : null}

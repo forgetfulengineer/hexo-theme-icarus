@@ -48,6 +48,38 @@ html
 .dropdown-icon-rotate::after
     transform: rotate(-225deg) !important
 
+.navbar-burger
+    height: unset
+    margin-left: 0
+
+// navbar 正常狀態 (寬螢幕)
++from($navbar-breakpoint)
+    .navbar-menu
+        .navbar-item
+            background-image: linear-gradient(transparent calc(100% - 1px), $primary-color-hover 1px)
+            background-repeat: no-repeat
+            background-size: 0 85%
+            transition: all .25s ease-in-out
+            &:hover
+                background-size: 100% 100%
+        .navbar-dropdown
+            left: auto
+            min-width: auto
+            position: fixed
+
+// navbar 伸縮選單狀態 (觸控裝置)
++until($navbar-breakpoint)
+    .navbar-main
+        .navbar-item
+            padding: 0.5rem 0.75rem
+    .navbar-item.has-dropdown
+        padding: 0
+    .navbar-dropdown
+        display: none
+        .navbar-item
+            margin-left: 1rem
+            border-left: 1px solid #dbdbdb
+
 // 連結、按鈕
 a
     color: $primary-color-hover

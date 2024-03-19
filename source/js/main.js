@@ -168,4 +168,23 @@
 
     // 文章內表格 - 新增樣式
     $('.table-scroll table').addClass("table is-hoverable");
+
+    // 點擊 navbar burger icon
+    $(".navbar-burger").click(function() {
+        // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+        $(".navbar-burger, .navbar-menu").toggleClass("is-active");
+    });
+
+    // navbar 伸縮選單狀態 (觸控裝置)
+    if ($(window).width() < 1088) {
+        // 點擊 navbar 內層的選單
+        $(".navbar-item.has-dropdown").click(function() {
+            $('.navbar-dropdown').toggle('normal');
+            $('.navbar-link:not(.is-arrowless)').toggleClass('dropdown-icon-rotate');
+        });
+    } else { // navbar 正常狀態 (寬螢幕)
+        $(".navbar-item.has-dropdown").hover(function() {
+            $('.navbar-link:not(.is-arrowless)').toggleClass('dropdown-icon-rotate');
+        })
+    }
 }(jQuery, window.moment, window.ClipboardJS, window.IcarusThemeSettings));
