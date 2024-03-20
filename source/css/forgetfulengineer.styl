@@ -146,14 +146,6 @@ mark
     transition: all .25s ease-in-out
     &:hover
         background-size: 100% 100%
-.message
-    border-radius: 10px
-    .message-header
-        border-radius: 10px 10px 0 0
-
-.message-body
-    border-radius: 10px
-    border-width: 0 0 0 6px
 
 // 表格
 .table-scroll
@@ -174,8 +166,8 @@ mark
     th:first-child
         z-index: 2
 
-// 程式區塊
-figure.highlight
+// 程式區塊、iframe
+figure.highlight, iframe
     border-radius: 10px
 
 // 圖片light box
@@ -185,11 +177,10 @@ figure.highlight
 
 // 目錄
 .menu-list a
-    border-radius: 10px
     &.is-active
-        background-color: $body-background-color
-        color: $primary-color-hover
         font-weight: bold
+.menu-label
+    text-transform: none !important;
 
 // 標籤列表
 .tag:not(body)
@@ -210,32 +201,32 @@ figure.highlight
         transition: all .3s;
 
 // 頁數
-.pagination-link.is-current
-    background-color: $primary-color-hover
+.pagination-link
+    border-radius: 7px
 
 // 側邊欄
-+tablet()
++desktop()
     .column-main.is-sticky,
     .column-left.is-sticky,
     .column-right.is-sticky,
     .column-right-shadow.is-sticky
-        top: 6.5rem;
+        top: 6rem;
         align-self: flex-start;
 
-.menu-label
-    font-size: 1rem
-    text-transform: none !important;
++tablet-only()
+    .column-main.is-sticky,
+    .column-left.is-sticky,
+    .column-right.is-sticky,
+    .column-right-shadow.is-sticky
+        top: 4.5rem;
+        align-self: flex-start;
 
 // card
 .card
-    border-radius: 15px
     &:hover
-        box-shadow: 0 15px 15px rgba(0,0,0,0.15), 0 0 7px rgba(0,0,0,0.1)
+        box-shadow: 0 10px 15px rgba(0,0,0,0.15), 0 0 10px rgba(0,0,0,0.1)
 
 // footer
-footer.footer
-    padding: 2rem
-
 +mobile()
     footer.footer
         padding: 1.5rem
@@ -259,13 +250,10 @@ i
 // 複製完成提示
 .notification
     position: fixed
-    border-radius: 10px
-    padding: 1rem
     bottom: -15%
     left: 50%
     transform: translateX(-50%);
     color: $white
-    background-color: $primary-color-hover
 
 // 其他
 .level-item
