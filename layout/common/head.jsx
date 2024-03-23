@@ -53,7 +53,7 @@ module.exports = class extends Component {
 
         const language = page.lang || page.language || config.language;
         const fontCssUrl = {
-            default: fontcdn('Fira+Code&family=Noto+Sans+TC:wght@500&display=swap', 'css2'),
+            default: fontcdn('Noto+Sans+TC:wght@500&display=swap&family=Inconsolata:wdth,wght@112.5,600', 'css2'),
             cyberpunk: fontcdn('Oxanium:wght@300;400;600&family=Roboto+Mono', 'css2')
         };
 
