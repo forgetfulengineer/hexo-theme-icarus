@@ -179,12 +179,12 @@
     if ($(window).width() < 1088) {
         // 點擊 navbar 內層的選單
         $(".navbar-item.has-dropdown").click(function() {
-            $('.navbar-dropdown').toggle('normal');
-            $('.navbar-link:not(.is-arrowless)').toggleClass('dropdown-icon-rotate');
+            $(this).find('.navbar-dropdown').toggle('normal');
+            $(this).find('.navbar-link:not(.is-arrowless)').toggleClass('dropdown-icon-rotate');
         });
     } else { // navbar 正常狀態 (寬螢幕)
         $(".navbar-item.has-dropdown").hover(function() {
-            $('.navbar-link:not(.is-arrowless)').toggleClass('dropdown-icon-rotate');
+            $(this).find('.navbar-link:not(.is-arrowless)').toggleClass('dropdown-icon-rotate');
         })
     }
 
