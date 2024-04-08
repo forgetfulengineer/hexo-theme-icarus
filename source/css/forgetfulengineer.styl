@@ -80,6 +80,12 @@ html
             margin-left: 1rem
             border-left: 1px solid #dbdbdb
 
+// navbar 伸縮選單狀態 (觸控小螢幕裝置)
++until($phone)
+    .navbar-brand
+        .navbar-item
+            padding: 0.5rem 0.45rem
+
 // 連結、按鈕
 a
     color: $primary-color-hover
