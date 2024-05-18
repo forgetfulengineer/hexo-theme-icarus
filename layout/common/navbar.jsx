@@ -72,7 +72,7 @@ class Navbar extends Component {
                                 return <a class={classname({ 'navbar-item': true, 'is-active': item.active })} href={item.url}>{name}</a>;
                             } else {
                                 return <div class="navbar-item has-dropdown is-hoverable">
-                                            <a class={classname({ 'navbar-link': true, 'is-active': item.active })}>{name}</a>
+                                            <div class={classname({ 'navbar-link': true, 'is-active': item.active })}>{name}</div>
                                             <div class="navbar-dropdown">
                                                 {Object.keys(item.url).map(subname => {
                                                     const suburl = item.url[subname]['suburl'];
