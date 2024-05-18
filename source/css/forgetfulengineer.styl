@@ -88,16 +88,11 @@ html
 
 // 連結、按鈕
 a
-    color: $primary-color-hover
-    &:hover
-        color: $primary-color
-        transition: all .3s;
+    transition: all .3s;
 
 .button.is-primary, .button.is-link
-    background-color: $primary-color
     &:hover
-        background-color: $primary-color-hover
-        transition: all .3s;
+        background-color: $primary-light
 
 // 繼續閱讀
 .article-more
@@ -105,8 +100,6 @@ a
 
 // 文章 (article)
 article
-    .link-muted:hover
-        color: $primary-color-hover !important
     .gallery-item img
         border-radius: 13px
     .content
@@ -195,16 +188,6 @@ figure.highlight, iframe
     background-color: $body-background-color
     &.is-primary
         background-color: $primary-color-hover
-
-.widget .tags .tag:first-child
-    background-color: $primary-color-hover
-
-// 麵包屑
-.breadcrumb a
-    color: inherit
-    &:hover
-        color: $primary-color-hover
-        transition: all .3s;
 
 // 頁數
 .pagination-link

@@ -11,8 +11,8 @@ $body-size = 16px
 $body-background-color = rgb(233, 229, 225)
 
 // 網站主配色
-$primary-color = rgb(200, 182, 166)
-$primary-color-hover = rgb(146, 127, 108)
+$primary = rgb(146, 127, 108)
+$primary-light = rgb(200, 182, 166)
 
 // 網站佈局
 // 由 node_modules\bulma-stylus\stylus\elements\container.styl 和 themes\icarus\include\style\responsive.styl 控制寬度
@@ -20,15 +20,22 @@ $gap = 55px
 $phone = 426px
 $screen-onek = 1700px
 
+// link
+$link = $primary
+$link-hover = $primary-light
+
 // section
 $section-padding = 1rem
 
 // navbar
-$navbar-item-hover-color = $primary-color-hover
 $navbar-item-hover-background-color = transparent !important
-$navbar-item-active-color = $primary-color-hover
-$navbar-dropdown-arrow = $primary-color-hover
-$navbar-dropdown-item-hover-color = $primary-color-hover
+$navbar-item-active-color = $primary
+$navbar-dropdown-item-hover-color = $primary
+
+// breadcrumb
+$breadcrumb-item-color = inherit
+$breadcrumb-item-hover-color = $primary
+$breadcrumb-item-active-color = $primary
 
 // model
 $modal-z = 110
@@ -48,7 +55,6 @@ $table-row-hover-background-color = $body-background-color
 // menu
 $menu-label-font-size = 1rem
 $menu-item-radius = 10px
-$menu-item-active-color = $primary-color-hover
 $menu-item-active-background-color = $body-background-color
 
 // card
@@ -57,7 +63,7 @@ $card-radius = 15px
 // notification
 $notification-radius = 10px
 $notification-padding = 1rem
-$notification-background-color = $primary-color-hover
+$notification-background-color = $primary
 
 // footer
 $footer-padding = 2rem
@@ -68,5 +74,5 @@ $searchbox-border-radius = 15px
 // loge 高度
 $logo-height = 3.5rem
 
-// 頁數樣式
-$pagination-current-background-color = $primary-color-hover
+// button
+$button-hover-color = inherit
