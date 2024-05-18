@@ -55,15 +55,42 @@ $logo-height ?= 1.75rem
 
 $colors = merge($colors, $custom-colors)
 
-@import bulma-stylus-root + '/utilities/animations'
+// @import bulma-stylus-root + '/utilities/animations'
 @import bulma-stylus-root + '/utilities/mixins'
 @import bulma-stylus-root + '/utilities/controls'
 @import bulma-stylus-root + '/base/_all'
-@import bulma-stylus-root + '/components/_all'
-@import bulma-stylus-root + '/elements/_all'
-@import bulma-stylus-root + '/form/_all'
-@import bulma-stylus-root + '/grid/_all'
-@import bulma-stylus-root + '/layout/_all'
+// @import bulma-stylus-root + '/components/_all'
+@import bulma-stylus-root + '/components/breadcrumb'
+@import bulma-stylus-root + '/components/card'
+@import bulma-stylus-root + '/components/level'
+@import bulma-stylus-root + '/components/media'
+@import bulma-stylus-root + '/components/menu'
+@import bulma-stylus-root + '/components/message'
+@import bulma-stylus-root + '/components/modal'
+@import bulma-stylus-root + '/components/navbar'
+@import bulma-stylus-root + '/components/pagination'
+// @import bulma-stylus-root + '/components/tabs' 之後如果有文章用到 tab 標籤要開啟這個 stylus
+// @import bulma-stylus-root + '/elements/_all'
+@import bulma-stylus-root + '/elements/box'
+@import bulma-stylus-root + '/elements/button'
+@import bulma-stylus-root + '/elements/container'
+@import bulma-stylus-root + '/elements/content'
+@import bulma-stylus-root + '/elements/icon'
+@import bulma-stylus-root + '/elements/image'
+@import bulma-stylus-root + '/elements/notification'
+@import bulma-stylus-root + '/elements/table'
+@import bulma-stylus-root + '/elements/tag'
+@import bulma-stylus-root + '/elements/title'
+@import bulma-stylus-root + '/elements/other'
+// @import bulma-stylus-root + '/form/_all'
+@import bulma-stylus-root + '/form/tools'
+@import bulma-stylus-root + '/form/shared'
+@import bulma-stylus-root + '/form/input-textarea'
+// @import bulma-stylus-root + '/grid/_all'`
+@import bulma-stylus-root + '/grid/columns'
+// @import bulma-stylus-root + '/layout/_all'
+@import bulma-stylus-root + '/layout/footer'
+@import bulma-stylus-root + '/layout/section'
 
 html
     height: 100%
