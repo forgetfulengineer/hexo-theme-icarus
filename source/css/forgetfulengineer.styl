@@ -35,12 +35,6 @@ moving_line($size_y)
     &:hover
         background-size: 100% 100%
 
-$moving_line_85
-    moving_line(85%)
-
-$moving_line_100
-    moving_line(100%)
-
 // Nav bar
 .navbar
     z-index: 100
@@ -69,7 +63,7 @@ $moving_line_100
 +from($navbar-breakpoint)
     .navbar-menu
         .navbar-item
-            @extend $moving_line_85
+            moving_line(85%)
             &.has-dropdown
                 padding: 1.25rem 0rem
         .navbar-dropdown
@@ -123,7 +117,7 @@ article
 // 文章列表 (article.media)
 article.media
     .title a
-        @extend $moving_line_100
+        moving_line(100%)
     // 移除強制大寫
     .categories
         text-transform: none !important;
@@ -136,7 +130,7 @@ mark
 
 // 健忘筆記
 .message a:not(.button):not(.tag):not(.dropdown-item)
-    @extend $moving_line_100
+    moving_line(100%)
     color: $primary
     text-decoration: none;
 
