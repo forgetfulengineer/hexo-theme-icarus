@@ -109,10 +109,10 @@ module.exports = class extends Component {
                     </div> : null}
                     {/* Thumbnail */}
                     {cover ? <div class="card-image">
-                        {index ? <a href={url_for(page.link || page.path)} class="image is-7by3">
-                            <img class="fill" src={cover} alt={page.title || cover} />
-                        </a> : <span class="image is-7by3">
-                            <img class="fill not-gallery-item" src={cover} alt={page.title || cover} />
+                        {index ? <a href={url_for(page.link || page.path)} class="image">
+                            <img class="fill" src={cover} alt={page.title || cover} loading="lazy" />
+                        </a> : <span class="image">
+                            <img class="fill not-gallery-item" src={cover} alt={page.title || cover} loading="lazy" />
                         </span>}
                     </div> : null}
                     {/* Content/Excerpt */}
