@@ -50,7 +50,7 @@ module.exports = class extends Component {
                 </div>
             </div> : null}
             <div class="card">
-                <article class={`card-content article${'direction' in page ? ' ' + page.direction : ''}`} role="article">
+                <article {...(index ? {} : { itemscope: true, itemtype: "http://schema.org/Article" })} class={`card-content article${'direction' in page ? ' ' + page.direction : ''}`} role="article">
                     {/* Title */}
                     <h1 class="title is-3 is-size-4-mobile mb-3">
                         {index ? (
@@ -58,7 +58,7 @@ module.exports = class extends Component {
                                 {page.title}
                             </a>
                         ) : (
-                            page.title
+                            <span itemprop="headline">{page.title}</span>
                         )}
                     </h1>
                     {/* Metadata */}
@@ -68,10 +68,7 @@ module.exports = class extends Component {
                             {/* Creation Date or Last Update Date */}
                             <span class="level-item">
                                 <i class="fa-regular fa-calendar-days"></i>
-                                {shouldShowUpdated ?
-                                    <time dateTime={date_xml(page.updated)} title={__('article.licensing.updated_at') + new Date(page.updated).toLocaleString()}>{date(page.updated)}</time> :
-                                    <time dateTime={date_xml(page.date)} title={__('article.licensing.created_at') + new Date(page.date).toLocaleString()}>{date(page.date)}</time>
-                                }
+                                <time {...(index ? {} : (shouldShowUpdated ? { itemprop: "dateModified" } : { itemprop: "datePublished" }))} dateTime={date_xml(page.date)} title={__(shouldShowUpdated ? 'article.licensing.updated_at' : 'article.licensing.created_at') + new Date(page.date).toLocaleString()}>{date(shouldShowUpdated ? date(page.updated) : date(page.date))}</time>
                             </span>
                             {/* author */}
                             {page.author ? <span class="level-item"> {page.author} </span> : null}
@@ -112,11 +109,11 @@ module.exports = class extends Component {
                         {index ? <a href={url_for(page.link || page.path)} class="image">
                             <img class="fill" src={cover} alt={page.title || cover} loading="lazy" />
                         </a> : <span class="image">
-                            <img class="fill not-gallery-item" src={cover} alt={page.title || cover} loading="lazy" />
+                            <img itemprop="image" class="fill not-gallery-item" src={cover} alt={page.title || cover} loading="lazy" />
                         </span>}
                     </div> : null}
                     {/* Content/Excerpt */}
-                    <div class="content" dangerouslySetInnerHTML={{ __html: index && page.excerpt ? page.excerpt : page.content }}></div>
+                    <div {...(index ? {} : { itemprop: "articleBody" })} class="content" dangerouslySetInnerHTML={{ __html: index && page.excerpt ? page.excerpt : page.content }}></div>
                     {/* Licensing block */}
                     {!index && page.layout !== 'page' && article && article.licenses && Object.keys(article.licenses)
                         ? <ArticleLicensing.Cacheable page={page} config={config} helper={helper} /> : null}
