@@ -42,3 +42,32 @@
         }
     });
 }(jQuery, window.moment, window.ClipboardJS, window.IcarusThemeSettings));
+
+window.onload = function() {
+    setTimeout(() => {
+        let ad_flag = false;
+        $('ins.adsbygoogle').each(function(){
+            if ($(this).data('ad-status')) {
+                if ($(this).data('ad-status') == 'unfilled') {
+                    $(this).closest('.card').remove();
+                }
+                ad_flag = true;
+            } else {
+                $(this).closest('.card').remove();
+            }
+        });
+
+        if (ad_flag) {
+            console.info('嗨！我是健忘工程師～');
+            console.info('你在看網站的架構嗎？有甚麼問題或建議歡迎跟我說唷！');
+            console.info('非常感謝你沒有使用 Adblock (廣告阻擋器) (*´▽`*)');
+            console.info('(ㅅ˘ㅂ˘) 祝福你事事順心，都不會遇到 bug');
+        } else {
+            console.warn('嗨！我是健忘工程師～');
+            console.warn('你在看網站的架構嗎？有甚麼問題或建議歡迎跟我說唷！');
+            console.warn('(／‵Д′)／~ ╧╧ 你是不是有使用 Adblock (廣告阻擋器)');
+            console.warn('如果我的筆記對你有一點點幫助的話就幫我關掉吧～求求你了(╥﹏╥)');
+            console.warn('如果你關閉 Adblock (廣告阻擋器)，我會非常感謝你的(*´▽`*)');
+        }
+    }, 5000)
+};
