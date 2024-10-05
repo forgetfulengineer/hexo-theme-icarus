@@ -176,7 +176,7 @@ module.exports = class extends Component {
             {/* <link rel="stylesheet" href={iconcdn()} /> */}
             {hlTheme ? <link data-pjax rel="stylesheet" href={cdn('highlight.js', '11.7.0', 'styles/' + hlTheme + '.css')} /> : null}
             <link rel="stylesheet" href={fontCssUrl[variant]} />
-            <link data-pjax rel="stylesheet" href={url_for('/css/' + variant + '.css')} />
+            <link rel="stylesheet" href={url_for('/css/' + variant + '.css')} />
             <Plugins site={site} config={config} helper={helper} page={page} head={true} />
 
             {adsenseClientId ? <script data-ad-client={adsenseClientId}

@@ -13,6 +13,8 @@
                     '.columns',
                     '.navbar-start',
                     '.navbar-end',
+                    '.navbar-burger',
+                    '.navbar-menu',
                     '.searchbox link',
                     '.searchbox script',
                     '#back-to-top',
