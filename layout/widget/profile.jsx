@@ -10,7 +10,7 @@ class Profile extends Component {
         return <div class="level is-mobile is-multiline">
             {links.filter(link => typeof link === 'object').map(link => {
                 return <a class="level-item button is-transparent is-marginless"
-                    target="_blank" rel="noopener" title={link.name} href={link.url}>
+                    target="_blank" rel="me noopener" title={link.name} href={link.url}>
                     {'icon' in link ? <i class={link.icon}></i> : link.name}
                 </a>;
             })}
@@ -73,7 +73,7 @@ class Profile extends Component {
                     </div>
                 </nav>
                 {followLink ? <div class="level">
-                    <a class="level-item button is-primary is-rounded" href={followLink} target="_blank" rel="noopener">{followTitle}</a>
+                    <a class="level-item button is-primary is-rounded" href={followLink} target="_blank" rel="me noopener">{followTitle}</a>
                 </div> : null}
                 {socialLinks ? this.renderSocialLinks(socialLinks) : null}
             </div>
@@ -134,17 +134,17 @@ Profile.Cacheable = cacheComponent(Profile, 'widget.profile', props => {
             post: {
                 count: postCount,
                 title: _p('common.post', postCount),
-                url: url_for('/archives')
+                url: url_for('/archives/')
             },
             category: {
                 count: categoryCount,
                 title: _p('common.category', categoryCount),
-                url: url_for('/categories')
+                url: url_for('/categories/')
             },
             tag: {
                 count: tagCount,
                 title: _p('common.tag', tagCount),
-                url: url_for('/tags')
+                url: url_for('/tags/')
             }
         },
         followLink: follow_link ? url_for(follow_link) : undefined,
