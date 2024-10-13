@@ -6,6 +6,7 @@
         try {
             const Pjax = window.Pjax || function() {};
             pjax = new Pjax({
+                elements: 'a:not(a[target="_blank"])', // default is "a[href], form[action]"
                 selectors: [
                     '[data-pjax]',
                     '.pjax-reload',
