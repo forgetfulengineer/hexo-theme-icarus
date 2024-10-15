@@ -38,7 +38,7 @@ module.exports = class extends Component {
             <script data-pjax src={url_for('/js/column.js')} defer></script>
             <Plugins site={site} config={config} page={page} helper={helper} head={false} />
             <script data-pjax src={url_for('/js/main.js')} defer></script>
-            {helper.is_post(page) ? <script data-pjax src={url_for('/js/post.js')} defer></script> : null}
+            {helper.is_post(page) || page.post_js ? <script data-pjax src={url_for('/js/post.js')} defer></script> : null}
         </Fragment>;
     }
 };
