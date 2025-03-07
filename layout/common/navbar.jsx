@@ -71,10 +71,14 @@ class Navbar extends Component {
                             if (typeof item.url === 'string') {
                                 return <a class={classname({ 'navbar-item': true, 'is-active': item.active })} href={item.url}>{name}</a>;
                             } else {
+                                const self_url = item['url']['self']['suburl'];
                                 return <div class="navbar-item has-dropdown is-hoverable">
-                                            <div class={classname({ 'navbar-link': true, 'is-active': item.active })}>{name}</div>
+                                            <div class={classname({ 'navbar-link': true, 'is-active': item.active})}>
+                                                <a class={classname({ 'link-muted': true })} href={self_url}>{name}</a>
+                                            </div>
                                             <div class="navbar-dropdown">
                                                 {Object.keys(item.url).map(subname => {
+                                                    if (subname == 'self') return;
                                                     const suburl = item.url[subname]['suburl'];
                                                     return <a class={classname({ 'navbar-item': true })} href={suburl}>{subname}</a>;
                                                 })}
