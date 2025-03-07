@@ -122,6 +122,9 @@
         $toc.on('click', toggleToc);
         $mask.on('click', toggleToc);
         $('.navbar-main .catalogue').on('click', toggleToc);
+        $('.navbar-main .catalogue').on('click', function() {
+            $(".navbar-burger, .navbar-menu").removeClass("is-active");
+        });
     }
 
     // 回覆文章

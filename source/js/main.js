@@ -21,19 +21,31 @@
     $(".navbar-burger").click(function() {
         // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
         $(".navbar-burger, .navbar-menu").toggleClass("is-active");
+
+        if ($("#toc").hasClass('is-active')) {
+            $("#toc").removeClass('is-active');
+            $("#toc-mask").removeClass('is-active');
+        }
     });
 
     // navbar 伸縮選單狀態 (觸控裝置)
     if ($(window).width() < 1088) {
         // 點擊 navbar 內層的選單
         $(".navbar-item.has-dropdown").click(function() {
-            $(this).find('.navbar-dropdown').toggle('normal');
-            $(this).find('.navbar-link:not(.is-arrowless)').toggleClass('dropdown-icon-rotate');
+            let $this = $(this);
+            let $this_arrow = $this.children('.navbar-link:not(.is-arrowless)');
+
+            $(".navbar-item.has-dropdown").not($this).find('.navbar-dropdown').hide('normal');
+            $(".navbar-link:not(.is-arrowless)").not($this_arrow).removeClass('dropdown-icon-rotate');
+            $this.find('.navbar-dropdown').toggle('normal');
+            $this.find('.navbar-link:not(.is-arrowless)').toggleClass('dropdown-icon-rotate');
         });
     } else { // navbar 正常狀態 (寬螢幕)
-        $(".navbar-item.has-dropdown").hover(function() {
-            $(this).find('.navbar-link:not(.is-arrowless)').toggleClass('dropdown-icon-rotate');
-        })
+        $(".navbar-item.has-dropdown").mouseenter(function() {
+            $(this).find('.navbar-link:not(.is-arrowless)').addClass('dropdown-icon-rotate');
+        }).mouseleave(function() {
+            $(this).find('.navbar-link:not(.is-arrowless)').removeClass('dropdown-icon-rotate');
+        });
     }
 
     $(document).on('keydown', (event) => {
