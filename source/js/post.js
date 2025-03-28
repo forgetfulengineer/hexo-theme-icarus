@@ -128,10 +128,24 @@
     }
 
     // 回覆文章
-    const twikoo = document.getElementById("twikoo");
-    $('#replay').click(function() {
-        twikoo.scrollIntoView({ behavior: 'smooth' });
+    $('#replay').click(function scrollToComment() {
+        const commentSection = document.getElementById("twikoo");
+
+        commentSection.scrollIntoView({ behavior: 'smooth' });
+        setTimeout(() => {
+            if (!isElementInViewport(commentSection)) {
+                scrollToComment();
+            }
+        }, 300);
     })
+
+    function isElementInViewport(el) {
+        const rect = el.getBoundingClientRect();
+        return (
+            rect.top >= 0 &&
+            rect.bottom <= (window.innerHeight || document.documentElement.clientHeight)
+        );
+    }
 
     // 文章內表格 - 新增樣式
     $('.table-scroll table').addClass("table is-hoverable");
