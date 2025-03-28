@@ -58,6 +58,8 @@ module.exports = class extends Component {
                     {/* Metadata */}
                     {page.layout !== 'page' ? <div class="article-meta is-size-7 level is-mobile mb-3">
                         <div class="level-left">
+                            {/* PIN Icon */}
+                            {page.top ? <i class="fas fa-thumbtack level-item" title="Pinned"></i> : null}
                             {/* 如果有更新顯示更新時間 */}
                             {/* Creation Date or Last Update Date */}
                             <span class="level-item">

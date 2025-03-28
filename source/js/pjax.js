@@ -35,11 +35,26 @@
     //     // TODO pace start loading animation
     // })
 
-    // // Listen for completion of Pjax
-    // document.addEventListener('pjax:complete', function() {
-    //     return;
-    //     // TODO pace stop loading animation
-    // })
+    // Listen for completion of Pjax
+    document.addEventListener('pjax:complete', () => {
+        // Plugin [MathJax] reload logic
+        if (window.MathJax) {
+            try {
+                window.MathJax.typesetPromise && window.MathJax.typesetPromise();
+            } catch (e) {
+                console.error('MathJax reload error:', e);
+            }
+        }
+        // Plugin [Busuanzi] reload logic
+        if (window.bszCaller && window.bszTag) {
+            window.bszCaller.fetch('//busuanzi.ibruce.info/busuanzi?jsonpCallback=BusuanziCallback', a => {
+                window.bszTag.texts(a);
+                window.bszTag.shows();
+            });
+        }
+
+        // TODO pace stop loading animation
+    });
 
     document.addEventListener('DOMContentLoaded', () => initPjax());
 }());
