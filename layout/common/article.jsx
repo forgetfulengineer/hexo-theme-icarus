@@ -94,8 +94,8 @@ module.exports = class extends Component {
                             {!index && plugins && plugins.busuanzi === true ? <span class="level-item" id="busuanzi_container_page_pv" dangerouslySetInnerHTML={{
                                 __html: _p('plugin.visit_count', '<span id="busuanzi_value_page_pv">0</span>')
                             }}></span> : null}
-                            {/* replay */}
-                            {!index ? <span id="replay" class="level-item" style="cursor: pointer;"><i class="fa-regular fa-comment-dots"></i>回覆文章</span> : null}
+                            {/* reply */}
+                            {!index ? <span id="reply" class="level-item" style="cursor: pointer;"><i class="fa-regular fa-comment-dots"></i>回覆文章</span> : null}
                             {/* share */}
                             <span id="share" class="level-item copy" style="cursor: pointer;" title='複製連結' data-clipboard-text={page.permalink}><i class="fa-solid fa-link"></i>分享</span>
                         </div>

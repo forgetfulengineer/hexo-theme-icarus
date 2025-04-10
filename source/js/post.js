@@ -128,7 +128,7 @@
     }
 
     // 回覆文章
-    $('#replay').click(function scrollToComment() {
+    $('#reply').click(function scrollToComment() {
         const commentSection = document.getElementById("twikoo");
 
         commentSection.scrollIntoView({ behavior: 'smooth' });
