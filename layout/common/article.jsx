@@ -54,7 +54,7 @@ module.exports = class extends Component {
                 <article {...(index ? {} : { itemscope: true, itemtype: "http://schema.org/Article" })} class={`card-content article${'direction' in page ? ' ' + page.direction : ''}`} role="article">
                     {/* Title */}
                     {page.title !== '' && index ? <p class="title is-3 is-size-4-mobile"><a class="link-muted" href={url_for(page.link || page.path)}>{page.title}</a></p> : null}
-                    {page.title !== '' && !index ? <h1 class="title is-3 is-size-4-mobile">{page.title}</h1> : null}
+                    {page.title !== '' && !index ? <h1 itemprop="headline" class="title is-3 is-size-4-mobile">{page.title}</h1> : null}
                     {/* Metadata */}
                     {page.layout !== 'page' ? <div class="article-meta is-size-7 level is-mobile mb-3">
                         <div class="level-left">
