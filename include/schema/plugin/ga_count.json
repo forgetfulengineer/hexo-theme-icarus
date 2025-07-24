@@ -1,0 +1,15 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "/plugin/ga_count.json",
+    "description": "Ga count plugin",
+    "type": "object",
+    "properties": {
+        "ga_count_api": {
+            "type": "string",
+            "description": "Google Analytics Data API",
+            "nullable": true,
+            "examples": ["https://ga-api-demo.netlify.app/.netlify/functions/pageview"]
+        }
+    },
+    "required": ["ga_count_api"]
+}

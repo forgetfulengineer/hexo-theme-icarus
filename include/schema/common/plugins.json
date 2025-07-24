@@ -31,6 +31,9 @@
         "google_analytics": {
             "$ref": "/plugin/google_analytics.json"
         },
+        "ga_count": {
+            "$ref": "/plugin/ga_count.json"
+        },
         "hotjar": {
             "$ref": "/plugin/hotjar.json"
         },
