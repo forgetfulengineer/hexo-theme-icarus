@@ -94,6 +94,7 @@ module.exports = class extends Component {
                             {!index && plugins && plugins.busuanzi === true ? <span class="level-item" id="busuanzi_container_page_pv" dangerouslySetInnerHTML={{
                                 __html: _p('plugin.visit_count', '<span id="busuanzi_value_page_pv">0</span>')
                             }}></span> : null}
+                            {!index && plugins && plugins.ga_count && plugins.ga_count.ga_count_api ? <span class="level-item" id="ga_container_page_pv"><i class="far fa-eye"></i><span id="ga_value_page_pv">-</span></span> : null}
                             {/* reply */}
                             {!index ? <span id="reply" class="level-item" style="cursor: pointer;"><i class="fa-regular fa-comment-dots"></i>回覆文章</span> : null}
                             {/* share */}

@@ -39,7 +39,7 @@ class Footer extends Component {
                             &nbsp;&nbsp;Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>&nbsp;&&nbsp;
                             <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a>
                             {showVisitorCounter ? <br /> : null}
-                            {showVisitorCounter ? <span id="busuanzi_container_site_uv"
+                            {showVisitorCounter ? <span id="ga_container_site_pvuv"
                                 dangerouslySetInnerHTML={{ __html: visitorCounterTitle }}></span> : null}
                         </p>
                         {copyright ? <p class="is-size-7" dangerouslySetInnerHTML={{ __html: copyright }}></p> : null}
@@ -92,7 +92,7 @@ module.exports = cacheComponent(Footer, 'common.footer', props => {
         author,
         links,
         copyright: footer?.copyright ?? '',
-        showVisitorCounter: plugins && plugins.busuanzi === true,
-        visitorCounterTitle: _p('plugin.visitor_count', '<span id="busuanzi_value_site_uv">0</span>')
+        showVisitorCounter: plugins && plugins?.ga_count?.ga_count_api,
+        visitorCounterTitle: '<i class="far fa-eye"></i>總瀏覽數：<span id="ga_value_site_pv">-</span>&nbsp;&nbsp;<i class="fa-solid fa-person-walking"></i>總訪客數：<span id="ga_value_site_uv">-</span>'
     };
 });
