@@ -23,6 +23,8 @@ function getPageTitle(page, siteTitle, helper) {
         title = helper._p('common.category', Infinity);
     } else if (helper.is_tags()) {
         title = helper._p('common.tag', Infinity);
+    } else if (helper.is_popular()) {
+        title = '熱門文章';
     }
 
     return [title, siteTitle].filter(str => typeof str !== 'undefined' && str.trim() !== '').join(' - ');
