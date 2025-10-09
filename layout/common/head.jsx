@@ -53,7 +53,7 @@ module.exports = class extends Component {
 
         const language = page.lang || page.language || config.language;
         const fontCssUrl = {
-            default: fontcdn('Noto+Sans+TC:wght@500&display=swap&family=Inconsolata:wdth,wght@112.5,600', 'css2'),
+            default: fontcdn('Inter:opsz,wght@14..32,400..700&family=Noto+Sans+TC:wght@400;600;700&display=swap', 'css2'),
             cyberpunk: fontcdn('Oxanium:wght@300;400;600&family=Roboto+Mono', 'css2')
         };
 
@@ -167,6 +167,7 @@ module.exports = class extends Component {
             <link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/webfonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin="anonymous"/>
             <link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css" as="style" onload="this.rel='stylesheet'" crossorigin="anonymous"/>
             <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin/>
+            <link rel="preconnect" href="https://fonts.googleapis.com"/>
             {is_post(page) ? <link rel='preconnect' href='https://forgetfulengineer-twikoo.netlify.app/' crossorigin/> : null}
             {is_post(page) ? <link rel='preconnect' href='https://codepen.io/'/> : null}
             {is_post(page) ? <link rel='preconnect' href='https://onecompiler.com/'/> : null}
