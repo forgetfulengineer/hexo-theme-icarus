@@ -55,7 +55,7 @@
     });
 }(jQuery, window.moment, window.ClipboardJS, window.IcarusThemeSettings));
 
-window.onload = function() {
+window.addEventListener("load", function() {
     setTimeout(() => {
         let ad_flag = false;
         $('ins.adsbygoogle').each(function(){
@@ -82,4 +82,4 @@ window.onload = function() {
             console.warn('如果你關閉 Adblock (廣告阻擋器)，我會非常感謝你的(*´▽`*)');
         }
     }, 5000)
-};
+});
