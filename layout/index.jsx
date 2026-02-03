@@ -8,7 +8,7 @@ module.exports = class extends Component {
         const { __, url_for } = helper;
 
         return <Fragment>
-            {page.posts.map(post => <Article config={config} page={post} helper={helper} index={true} />)}
+            {page.posts.map((post, postIndex) => <Article config={config} page={post} helper={helper} index={true} isFirst={postIndex === 0} />)}
             {page.total > 1 ? <Paginator
                 current={page.current}
                 total={page.total}

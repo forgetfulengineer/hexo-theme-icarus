@@ -21,7 +21,7 @@ function getWordCount(content) {
 
 module.exports = class extends Component {
     render() {
-        const { config, helper, page, index } = this.props;
+        const { config, helper, page, index, isFirst } = this.props;
         const { article, plugins } = config;
         const { url_for, date, date_xml, __, _p } = helper;
 
@@ -30,6 +30,14 @@ module.exports = class extends Component {
         const indexLanguage = toMomentLocale(defaultLanguage || 'en');
         const language = toMomentLocale(page.lang || page.language || defaultLanguage || 'en');
         const cover = page.cover ? url_for(page.cover) : null;
+        const isLcpCover = !index || isFirst;
+        const coverAttrs = {
+            src: cover,
+            alt: page.title || cover,
+            ...(isLcpCover
+                ? { fetchpriority: 'high', loading: 'eager' }
+                : { loading: 'lazy' })
+        };
         const updateTime = article && article.update_time !== undefined ? article.update_time : true;
         const isUpdated = page.updated && !moment(page.date).isSame(moment(page.updated));
         const shouldShowUpdated = page.updated && ((updateTime === 'auto' && isUpdated) || updateTime === true);
@@ -104,9 +112,9 @@ module.exports = class extends Component {
                     {/* Thumbnail */}
                     {cover ? <div class="card-image">
                         {index ? <a href={url_for(page.link || page.path)} class="image">
-                            <img class="fill" src={cover} alt={page.title || cover} loading="lazy" />
+                            <img class="fill" {...coverAttrs} />
                         </a> : <span class="image">
-                            <img itemprop="image" class="fill not-gallery-item" src={cover} alt={page.title || cover} loading="lazy" />
+                            <img itemprop="image" class="fill not-gallery-item" {...coverAttrs} />
                         </span>}
                     </div> : null}
                     {/* Content/Excerpt */}
