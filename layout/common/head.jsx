@@ -2,7 +2,7 @@ const { Component } = require('inferno');
 const MetaTags = require('hexo-component-inferno/lib/view/misc/meta');
 const WebApp = require('hexo-component-inferno/lib/view/misc/web_app');
 const OpenGraph = require('hexo-component-inferno/lib/view/misc/open_graph');
-const StructuredData = require('hexo-component-inferno/lib/view/misc/structured_data');
+const StructuredData = require('../misc/structured_data');
 const Plugins = require('./plugins');
 
 function getPageTitle(page, siteTitle, helper) {
@@ -152,14 +152,9 @@ module.exports = class extends Component {
                 facebookAppId={open_graph.fb_app_id} /> : null}
 
             {typeof structured_data === 'object' && structured_data !== null ? <StructuredData
-                title={structured_data.title || page.title || config.title}
-                description={structured_data.description || page.description || page.excerpt || page.content || config.description}
-                url={structured_data.url || page.permalink || url}
-                author={structured_data.author || config.author}
-                publisher={structured_data.publisher || config.title}
-                publisherLogo={structured_data.publisher_logo || config.logo}
-                date={page.date}
-                updated={page.updated}
+                page={page}
+                config={config}
+                helper={helper}
                 images={structuredImages} /> : null}
 
             <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin/>
