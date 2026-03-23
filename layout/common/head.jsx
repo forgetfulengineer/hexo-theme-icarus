@@ -44,7 +44,7 @@ module.exports = class extends Component {
             manifest = {},
             open_graph = {},
             structured_data = {},
-            canonical_url = page.permalink,
+            canonical_url = helper.is_home() ? url : page.permalink,
             rss,
             favicon
         } = head;
