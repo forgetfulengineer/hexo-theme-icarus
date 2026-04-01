@@ -159,19 +159,14 @@ module.exports = class extends Component {
 
             <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin/>
             <link rel="preconnect" href="https://fonts.googleapis.com"/>
-            <link rel="preconnect" href="https://cdn.jsdelivr.net"/>
-            <link rel="preconnect" href="https://forgetfulengineer-ga-data.netlify.app"/>
-            {is_post(page) ? <link rel='preconnect' href='https://forgetfulengineer-twikoo.netlify.app/' crossorigin/> : null}
-            <link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/webfonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin="anonymous"/>
-            <link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/webfonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin="anonymous"/>
-            <link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/webfonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin="anonymous"/>
-            <link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css" as="style" onload="this.rel='stylesheet'" crossorigin="anonymous"/>
+            <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin/>
+            <link rel="dns-prefetch" href="https://forgetfulengineer-ga-data.netlify.app"></link>
             {canonical_url ? <link rel="canonical" href={canonical_url} /> : null}
             {rss ? <link rel="alternate" href={url_for(rss)} title={config.title} type="application/atom+xml" /> : null}
             {favicon ? <link rel="icon" href={url_for(favicon)} /> : null}
-            {/* <link rel="stylesheet" href={iconcdn()} /> */}
-            {hlTheme ? <link data-pjax rel="stylesheet" href={cdn('highlight.js', '11.7.0', 'styles/' + hlTheme + '.css')} /> : null}
-            <link rel="stylesheet" href={fontCssUrl[variant]} />
+            <link rel="stylesheet" href={iconcdn()} media="print" onload="this.media='all'" />
+            {hlTheme && (is_post() || helper.is_page()) ? <link data-pjax rel="stylesheet" href={cdn('highlight.js', '11.7.0', 'styles/' + hlTheme + '.css')} media="print" onload="this.media='all'" /> : null}
+            <link rel="stylesheet" href={fontCssUrl[variant]} media="print" onload="this.media='all'" />
             <link rel="stylesheet" href={url_for('/css/' + variant + '.css')} />
             <Plugins site={site} config={config} helper={helper} page={page} head={true} />
 
