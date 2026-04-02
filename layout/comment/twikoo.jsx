@@ -7,7 +7,7 @@ class Twikoo extends Component {
         envId,
         jsUrl,
         } = this.props;
-        const js = `twikoo.init({
+        const js = `window.addEventListener("load", () => {twikoo.init({
             envId: '${envId}',
             onCommentLoaded: function () {
                 var commentContents = document.getElementsByClassName('tk-content');
@@ -33,11 +33,11 @@ class Twikoo extends Component {
                     }
                 }
             }
-        });`;
+        })});`;
         return (
         <Fragment>
             <div id="twikoo" class="content twikoo"></div>
-            <script src={jsUrl}></script>
+            <script src={jsUrl} defer></script>
             <script dangerouslySetInnerHTML={{ __html: js }}></script>
         </Fragment>
         );
