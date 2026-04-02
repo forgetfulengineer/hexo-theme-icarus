@@ -15,12 +15,6 @@
             download: false
         });
     }
-    if (typeof $.fn.justifiedGallery === 'function') {
-        if ($('.justified-gallery > p > .gallery-item').length) {
-            $('.justified-gallery > p > .gallery-item').unwrap();
-        }
-        $('.justified-gallery').justifiedGallery();
-    }
 
     $('.article > .content > table').each(function() {
         if ($(this).width() > $(this).parent().width()) {
