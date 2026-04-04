@@ -7,29 +7,48 @@ class GACount extends Component {
 
         if (head) return null;
 
-        let gaCountJs = `(function() {
-                            var url = "${apiUrl}";
-                            fetch(url, { method: 'get' })
-                                .then(response => response.json())
-                                .then(json => {
-                                    var sitePvElement = document.getElementById('ga_value_site_pv');
-                                    var siteUvElement = document.getElementById('ga_value_site_uv');
-                                    var pvElement = document.getElementById('ga_value_page_pv');
+        let gaCountJs = `
+                        async function fetchAndRenderGAData() {
+                            const url = "${apiUrl}";
 
-                                    if (sitePvElement) {
-                                        const sitePv = new countUp.CountUp('ga_value_site_pv', json.pv, { enableScrollSpy: true, scrollSpyOnce: true });
+                            try {
+                                const response = await fetch(url);
+
+                                if (!response.ok) throw new Error('API 回應錯誤');
+
+                                const json = await response.json();
+                                const initCountUp = (elementId, targetValue) => {
+                                    const el = document.getElementById(elementId);
+
+                                    if (el && window.countUp) {
+                                        new countUp.CountUp(elementId, targetValue, {
+                                            enableScrollSpy: true,
+                                            scrollSpyOnce: true
+                                        });
                                     }
-                                    if (siteUvElement) {
-                                        const siteUv = new countUp.CountUp('ga_value_site_uv', json.uv, { enableScrollSpy: true, scrollSpyOnce: true });
-                                    }
-                                    if (pvElement) {
-                                        const pagePv = new countUp.CountUp('ga_value_page_pv', json.pageViews, { enableScrollSpy: true, scrollSpyOnce: true });
-                                    }
+                                };
+
+                                requestAnimationFrame(() => {
+                                    initCountUp('ga_value_site_pv', json.pv);
+                                    initCountUp('ga_value_site_uv', json.uv);
+                                    initCountUp('ga_value_page_pv', json.pageViews);
                                 });
-                        })();`;
+                            } catch (error) {
+                                console.error('獲取 GA 數據失敗:', error);
+                            }
+                        }
+
+                        if ('requestIdleCallback' in window) {
+                            window.requestIdleCallback(fetchAndRenderGAData, { timeout: 2000 });
+                        } else {
+                            window.addEventListener('load', () => {
+                                fetchAndRenderGAData();
+                            });
+                        }
+                        `;
 
         return <Fragment>
-                    <script src={countUpJs}></script>
+                    <script src={countUpJs} defer></script>
                     <script dangerouslySetInnerHTML={{ __html: gaCountJs }}></script>
                 </Fragment>;
     }
