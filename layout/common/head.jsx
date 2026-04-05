@@ -117,6 +117,24 @@ module.exports = class extends Component {
             }
         }
 
+        let lcpImg = null;
+
+        if (page.posts && page.posts.length > 0) {
+            // 列表頁
+            const firstPost = page.posts.data[0];
+
+            if (firstPost && firstPost.cover) {
+                lcpImg = firstPost.cover;
+            } else if (firstPost && firstPost.thumbnail) {
+                lcpImg = firstPost.thumbnail;
+            }
+        } else if (page.cover) {
+            // 文章頁
+            lcpImg = page.cover;
+        } else if (page.thumbnail) {
+            lcpImg = page.thumbnail;
+        }
+
         return <head>
             <meta charset="utf-8" />
             <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -161,6 +179,7 @@ module.exports = class extends Component {
             <link rel="preconnect" href="https://fonts.googleapis.com"/>
             <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin/>
             <link rel="dns-prefetch" href="https://forgetfulengineer-ga-data.netlify.app"></link>
+            {lcpImg && (<link rel="preload" as="image" href={lcpImg} fetchpriority="high" />)}
             {canonical_url ? <link rel="canonical" href={canonical_url} /> : null}
             {rss ? <link rel="alternate" href={url_for(rss)} title={config.title} type="application/atom+xml" /> : null}
             {favicon ? <link rel="icon" href={url_for(favicon)} /> : null}
