@@ -147,6 +147,7 @@
     // modal 控制 (https://bulma.io/documentation/components/modal/)
     function closeModal(el) {
         el.removeClass('is-active');
+        $('html').removeClass('is-clipped');
     }
 
     // Add a click event on buttons to open a specific modal
@@ -156,6 +157,7 @@
 
         $(this).on('click', function() {
             target.addClass('is-active');
+            $('html').addClass('is-clipped');
         });
     });
 
@@ -171,7 +173,7 @@
     // Add a keyboard event to close all modals
     $(document).on('keydown', (event) => {
         if (event.key === "Escape") {
-            $('.modal').each(function() {
+            $('.modal.is-active').each(function() {
                 closeModal($(this));
             });
         }
