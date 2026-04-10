@@ -5,7 +5,7 @@ const Share = require('./share');
 const Donates = require('./donates');
 const Comment = require('./comment');
 const Related = require('./related');
-const ArticleLicensing = require('hexo-component-inferno/lib/view/misc/article_licensing');
+const ArticleLicensing = require('../misc/article_licensing');
 
 /**
  * Get the word count of text.
