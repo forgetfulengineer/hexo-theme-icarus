@@ -68,12 +68,18 @@ module.exports = class extends Component {
                         <div class="level-left">
                             {/* PIN Icon */}
                             {page.top ? <i class="fas fa-thumbtack level-item" title="Pinned"></i> : null}
-                            {/* 如果有更新顯示更新時間 */}
-                            {/* Creation Date or Last Update Date */}
+                            {/* Creation Date */}
                             <span class="level-item">
                                 <i class="fa-regular fa-calendar-days"></i>
-                                <time {...(index ? {} : (shouldShowUpdated ? { itemprop: "dateModified" } : { itemprop: "datePublished" }))} dateTime={date_xml(page.date)} title={__(shouldShowUpdated ? 'article.licensing.updated_at' : 'article.licensing.created_at') + new Date(page.date).toLocaleString()}>{date(shouldShowUpdated ? date(page.updated) : date(page.date))}</time>
+                                <time {...(index ? {} : { itemprop: "datePublished" })} dateTime={date_xml(page.date)} title={__('article.licensing.created_at') + new Date(page.date).toLocaleString()}>{date(page.date)}</time>
                             </span>
+                            {/* Last Update Date */}
+                            {shouldShowUpdated && (
+                                <span class="level-item is-hidden-phone">
+                                    <i class="fa-solid fa-pen-to-square"></i>
+                                    <time {...(index ? {} : { itemprop: "dateModified" })} dateTime={date_xml(page.updated)} title={__('article.licensing.updated_at') + new Date(page.updated).toLocaleString()}>{date(page.updated)}</time>
+                                </span>
+                            )}
                             {/* author */}
                             {page.author ? <span class="level-item"> {page.author} </span> : null}
                             {/* Categories */}
