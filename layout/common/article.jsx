@@ -49,10 +49,21 @@ module.exports = class extends Component {
             <div class="card">
                 <div class="card-content">
                     <nav class="breadcrumb" aria-label="breadcrumbs">
-                        <ul>
-                            <li><a href={url_for('/categories/')}>{_p('common.category', Infinity)}</a></li>
-                            {page.categories.map(category => {
-                                return <li><a href={url_for(category.path)}>{category.name}</a></li>;
+                        <ul itemscope itemtype="https://schema.org/BreadcrumbList">
+                            <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                                <a itemprop="item" href={url_for('/categories/')}>
+                                    <span itemprop="name">{_p('common.category', Infinity)}</span>
+                                </a>
+                                <meta itemprop="position" content="1" />
+                            </li>
+                            {page.categories.map((category, index) => {
+                                const currentPosition = index + 2;
+                                return (<li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                                            <a itemprop="item" href={url_for(category.path)}>
+                                                <span itemprop="name">{category.name}</span>
+                                            </a>
+                                            <meta itemprop="position" content={currentPosition.toString()} />
+                                        </li>);
                             })}
                         </ul>
                     </nav>
